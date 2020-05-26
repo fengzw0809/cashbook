@@ -1,10 +1,10 @@
 const http = require('http');
 const Logger = require('logger').createLogger();
 
-const app = require('app');
+const app = require('./app');
 
 const {
-  bill : {
+  cashbook : {
     host,
     port
   }

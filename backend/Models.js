@@ -46,6 +46,13 @@ BillModel.addBill = function ({ type, category, amount, time }) {
   });
 }
 
+BillModel.getBills = async function(offset, limit) {
+  let bills = await this.find({})
+                        .skip(offset)
+                        .limit(limit);
+  return bills;
+} 
+
 CategoryModel.addCategory = function ({ id, type, name }) {
   return this.create({
     id,
