@@ -9,7 +9,7 @@ fs.readFile(`${__dirname}/data/bill.csv`, (err, data) => {
   let rows = data.split('\n');
   for (let i = 1; i < rows.length; i++) {
     const [type, time, category, amount] = rows[i].split(',');
-    // 写入数据库
+    BillModel.addBill({ type, time: new Date(parseInt(time)), category, amount });
   }
 });
 
@@ -21,6 +21,6 @@ fs.readFile(`${__dirname}/data/categories.csv`, (err, data) => {
   let rows = data.split('\n');
   for (let i = 1; i < rows.length; i++) {
     const [id, type, name] = rows[i].split(',');
-    // 写入数据库
+    CategoryModel.addCategory({ id, type, name });
   }
 });

@@ -34,5 +34,25 @@ BillSchema.plugin(autoIncrement.plugin, {
 const CategoryModel = db.model('category', CategorySchema);
 const BillModel = db.model('bill', BillSchema);
 
+BillModel.addBill = function ({ type, category, amount, time }) {
+  if (!time) {
+    time = new Date();
+  }
+  return this.create({
+    type,
+    category,
+    amount,
+    time
+  });
+}
+
+CategoryModel.addCategory = function ({ id, type, name }) {
+  return this.create({
+    id,
+    type,
+    name
+  });
+}
+
 exports.CategoryModel = CategoryModel;
 exports.BillModel = BillModel;
