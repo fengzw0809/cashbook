@@ -1,5 +1,6 @@
 const fs = require('fs');
-const { BillModel, CategoryModel } = require('../Models');
+const BillModel = require('../Models/Bill');
+const CategoryModel = require('../Models/Category');
 
 fs.readFile(`${__dirname}/data/bill.csv`, (err, data) => {
   if (err) {

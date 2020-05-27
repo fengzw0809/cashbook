@@ -1,6 +1,6 @@
-const { BillModel, CategoryModel } = require('./Models');
+const BillModel = require('../Models/Bill');
 
-const routes = {
+module.exports = {
   'get /bills': async (ctx) => {
     let { pageId, pageSize } = ctx.query;
     pageId = parseInt(pageId);
@@ -32,11 +32,3 @@ const routes = {
     }
   }
 }
-
-module.exports = (router) => {
-  for (let route in routes) {
-    const [method, pathname] = route.split(/\s+/);
-    const middleware = routes[route];
-    router[method](pathname, middleware);
-  }
-};
