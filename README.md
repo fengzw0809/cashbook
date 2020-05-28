@@ -2,7 +2,10 @@
 
 ## 运行环境
 Windows 10<br />
-安装mongodb，npm，node<br />
+mongodb v4.0.5<br />
+npm v5.6.0
+node v8.11.4<br />
+以上为开发环境及相关版本
 
 ## 运行步骤
 1.在27017端口运行mongodb<br />
