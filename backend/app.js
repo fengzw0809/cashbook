@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-const path = require('path');
 const koaBody = require('koa-body');
+const cors = require('koa2-cors');
 
 const app = new Koa();
 const router = new Router();
@@ -9,6 +9,7 @@ const router = new Router();
 require('./routes')(router);
 
 app
+  .use(cors())
   .use(koaBody())
   .use(router.routes());
 

@@ -9,7 +9,9 @@ module.exports = {
       const bills = await BillModel.getBills((pageId - 1) * pageSize, pageSize);
       ctx.response.body = {
         ret: 1,
-        bills
+        data: {
+          bills
+        }
       };
     } catch (err) {
       ctx.response.body = {
@@ -19,11 +21,13 @@ module.exports = {
   },  
   'post /bill': async (ctx) => {  
     try {
-      const { type, category, amount } = ctx.request.body;
+      const { type, category, amount } = JSON.parse(ctx.request.body);
       const bill = await BillModel.addBill({ type, category, amount });
       ctx.response.body = {
         ret: 1,
-        bill
+        data: {
+          bill
+        }
       };
     } catch (err) {
       ctx.response.body = {

@@ -23,4 +23,9 @@ CategoryModel.addCategory = function ({ id, type, name }) {
   });
 }
 
+CategoryModel.getCategories = async function() {
+  let categories = await this.find({});
+  return categories;
+} 
+
 module.exports = CategoryModel;
