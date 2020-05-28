@@ -3,7 +3,7 @@
 ## 运行环境
 Windows 10<br />
 mongodb v4.0.5<br />
-npm v5.6.0
+npm v5.6.0<br />
 node v8.11.4<br />
 以上为开发环境及相关版本
 
